@@ -1,0 +1,25 @@
+<form #form="ngForm" (ngSubmit)="onSubmit(form)">
+  <label for="data" class="form-label my-1">Data da criação</label>
+  <input type="text" class="form-control my-1" id="data" name="data" [(ngModel)]="fl.dataCriacao">
+
+  <button type="submit" class="btn btn-success my-2">Salvar</button>
+</form>
+
+<table class="table">
+  <caption class="caption-top"><h2>Licitações</h2></caption>
+  <thead>
+    <tr>
+      <th>Data da criação</th>
+      <th>Ações</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor = "let l of ls">
+      <td>{{ l.dataCriacao }}</td>
+      <td>
+        <a routerLink="/licitacao/:id/edicao" class="btn btn-sm btn-success mx-1">Editar</a>
+        <a routerLink="/licitacao/:id/exclusao" class="btn btn-sm btn-danger mx-1">Excluir</a>
+      </td>
+    </tr>
+  </tbody>
+</table>

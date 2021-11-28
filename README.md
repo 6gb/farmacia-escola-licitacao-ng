@@ -1,27 +1,48 @@
-# FarmaciaEscolaLicitacaoNg
+# Programação orientada a objetos para web II - 2021/2 - Projeto individual
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.0.2.
+## Aplicação para auxílio na realização de licitações para uma farmácia escola
 
-## Development server
+O projeto consiste no desenvolvimento de uma aplicação para o cadastro dos preços praticados por fornecedores quanto a matérias-primas e embalagens farmacêuticas.
+Coletando-se os preços de vários fornecedores, posteriormente os dados serão utilizados na solicitação dos materiais por via de licitação para uma farmácia-escola, estabelecendo-se um preço médio dos produtos, necessário para tal.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+## Angular 13, Bootstrap 5 e NG Bootstrap 12
 
-## Code scaffolding
+[Nota de release do NG Bootstrap 12.0.0-beta.4](https://github.com/ng-bootstrap/ng-bootstrap/releases/tag/12.0.0-beta.4)
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+```
+ng-bootstrap 10 (stable) -> Angular 12 and Bootstrap 4
+ng-bootstrap 11 (rc -> Angular 13 and Bootstrap 4
+ng-bootstrap 12 (beta) -> Angular 13 and Bootstrap 5
+```
 
-## Build
+[ng-bootstrap.github.io](https://ng-bootstrap.github.io)
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+```
+Beta support for Bootstrap 5 is available with 12.0.0-beta.X
+You can install it via the npm install @ng-bootstrap/ng-bootstrap@bootstrap5
+```
+```
+// Installation for Angular CLI
+ng add @ng-bootstrap/ng-bootstrap
+```
 
-## Running unit tests
+Unido:
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+```
+ng add @ng-bootstrap/ng-bootstrap@bootstrap5
+```
 
-## Running end-to-end tests
+Modificado ``package.json``:
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+```
+{
+  //
+    "dependencies": {
+      //
+      // de "bootstrap": "^4.6.0" p/
+      "bootstrap": "^5.1.3",
+      //
+      },
+  //
+}
+```
