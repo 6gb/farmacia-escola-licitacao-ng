@@ -11,7 +11,7 @@ Coletando-se os preços de vários fornecedores, posteriormente os dados serão 
 
 ```
 ng-bootstrap 10 (stable) -> Angular 12 and Bootstrap 4
-ng-bootstrap 11 (rc -> Angular 13 and Bootstrap 4
+ng-bootstrap 11 (rc) -> Angular 13 and Bootstrap 4
 ng-bootstrap 12 (beta) -> Angular 13 and Bootstrap 5
 ```
 
