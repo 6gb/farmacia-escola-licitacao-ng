@@ -1,0 +1,70 @@
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+  <div class="form-group">
+    <label for="fornecedor" class="form-label my-1">Fornecedor</label>
+    <select formControlName="fornecedor" class="form-control my-1" id="fornecedor" name="fornecedor">
+      <option *ngFor="let fornecedor of fornecedores" [ngValue]="fornecedor">
+        {{ fornecedor.nome }}
+      </option>
+    </select>
+  </div>
+
+  <div class="form-group">
+    <label for="insumo" class="form-label my-1">Insumo</label>
+    <select formControlName="insumo" class="form-control my-1" id="insumo" name="insumo">
+      <option *ngFor="let insumo of insumos" [ngValue]="insumo">
+        {{ insumo.descricao }}
+      </option>
+    </select>
+  </div>
+
+  <!--
+  <div class="form-group">
+    <label for="embalagem" class="form-label my-1">Embalagem</label>
+    <select formControlName="embalagem" class="form-control my-1" id="embalagem" name="embalagem">
+      <option *ngFor="let embalagem of embalagens" [ngValue]="embalagem">
+        {{ embalagem.descricao }}
+      </option>
+    </select>
+  </div>
+
+  <div class="form-group">
+    <label for="materiaPrima" class="form-label my-1">Matéria-prima</label>
+    <select formControlName="materiaPrima" class="form-control my-1" id="materiaPrima" name="materiaPrima">
+      <option *ngFor="let materiaPrima of materiasPrimas" [ngValue]="materiaPrima">
+        {{ materiaPrima.descricao }}
+      </option>
+    </select>
+  </div>
+  -->
+
+  <div class="form-group">
+    <label for="preco" class="form-label my-1">Preço</label>
+    <input
+      formControlName="preco" type="number" class="form-control my-1" id="preco" name="preco" min="0" step="0.01">
+  </div>
+
+  <button type="submit" class="btn btn-success my-2">Salvar</button>
+</form>
+<table class="table">
+  <caption class="caption-top"><h2>Licitação</h2></caption>
+  <thead>
+  <tr>
+    <th>Descrição</th>
+    <th>Fornecedor</th>
+    <th>Preço</th>
+    <th>Média</th>
+    <th>Ações</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor = "let fornecimento of licitacao.fornecimentos">
+    <td>{{ fornecimento.insumo.descricao }}</td>
+    <td>{{ fornecimento.fornecedor.nome }}</td>
+    <td>{{ fornecimento.preco }}</td>
+    <td>{{ fornecimento.media }}</td>
+    <td>
+      <button class="btn btn-sm btn-danger mx-1" (click)="remover(fornecimento)">Excluir</button>
+    </td>
+  </tr>
+  </tbody>
+</table>

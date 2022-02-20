@@ -1,0 +1,19 @@
+<table class="table">
+  <caption class="caption-top"><h2>Licitações</h2></caption>
+  <thead>
+    <tr>
+      <th>Data da criação</th>
+      <th>Ações</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor = "let licitacao of licitacoes">
+      <td><a [routerLink]="['./', licitacao.id]">{{ licitacao.dataCriacao }}</a></td>
+      <td>
+        <a [routerLink]="['./', licitacao.id]" class="btn btn-sm btn-success mx-1">Editar</a>
+        <button class="btn btn-sm btn-danger mx-1" (click)="remover(licitacao)">Excluir</button>
+      </td>
+    </tr>
+  </tbody>
+  <button class="btn btn-success my-2" (click)="nova()">Criar nova</button>
+</table>

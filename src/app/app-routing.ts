@@ -1,36 +1,39 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AuthGuardService } from "./core/service/auth-guard.service"
 
 const routes: Routes = [
   {
+    path: 'login',
+    loadChildren: () => import('./pages/login/login.module').then(m => m.LoginModule)
+  },
+  {
     path: 'licitacao',
-    loadChildren: () => import('./licitacao/licitacao.module').then(m => m.LicitacaoModule)
+    loadChildren: () => import('./pages/licitacao/licitacao.module').then(m => m.LicitacaoModule),
+    canActivate: [AuthGuardService]
   },
   {
     path: 'fornecedor',
-    loadChildren: () => import('./fornecedor/fornecedor.module').then(m => m.FornecedorModule)
+    loadChildren: () => import('./pages/fornecedor/fornecedor.module').then(m => m.FornecedorModule),
+    canActivate: [AuthGuardService]
   },
   {
     path: 'materia-prima',
-    loadChildren: () => import('./materia-prima/materia-prima.module').then(m => m.MateriaPrimaModule)
+    loadChildren: () => import('./pages/materia-prima/materia-prima.module').then(m => m.MateriaPrimaModule),
+    canActivate: [AuthGuardService]
   },
   {
     path: 'embalagem',
-    loadChildren: () => import('./embalagem/embalagem.module').then(m => m.EmbalagemModule)
+    loadChildren: () => import('./pages/embalagem/embalagem.module').then(m => m.EmbalagemModule),
+    canActivate: [AuthGuardService]
   },
   {
-    path: 'fornecimento-materia-prima',
-    loadChildren: () => import('./fornecimento-materia-prima/fornecimento-materia-prima.module').then(m => m.FornecimentoMateriaPrimaModule)
+    path: 'fornecimento',
+    loadChildren: () => import('./pages/fornecimento/fornecimento.module').then(m => m.FornecimentoModule),
+    canActivate: [AuthGuardService]
   },
-  {
-    path: 'fornecimento-embalagem',
-    loadChildren: () => import('./fornecimento-embalagem/fornecimento-embalagem.module').then(m => m.FornecimentoEmbalagemModule)
-  },
-  {
-    path: '',
-    redirectTo: 'licitacao',
-    pathMatch: 'full'
-  }
+  { path: '', redirectTo: 'login', pathMatch: 'full' },
+  { path: '**', redirectTo: 'login', pathMatch: 'full' }
 ];
 
 @NgModule({

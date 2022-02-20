@@ -1,0 +1,64 @@
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+  <div class="form-group">
+    <label for="nome" class="form-label my-1">Nome</label>
+    <input formControlName="nome" type="text" class="form-control my-1" id="nome" name="nome">
+  </div>
+
+  <div class="form-group">
+    <label for="cnpj" class="form-label my-1">CNPJ</label>
+    <input formControlName="cnpj" type="text" class="form-control my-1" id="cnpj" name="cnpj">
+    <!--"00.000.000/0000-00"-->
+  </div>
+
+  <div class="form-group">
+    <label for="endereco" class="form-label my-1">Endereço</label>
+    <input formControlName="endereco" type="text" class="form-control my-1" id="endereco" name="endereco">
+  </div>
+
+  <div class="form-group">
+    <label for="telefone" class="form-label my-1">Telefone</label>
+    <input formControlName="telefone" type="text" class="form-control my-1" id="telefone" name="telefone">
+    <!--"(00) 00000-0000"-->
+  </div>
+
+  <div class="form-group">
+    <label for="sicaf" class="form-label my-1">SICAF</label>
+    <input formControlName="sicaf" type="text" class="form-control my-1" id="sicaf" name="sicaf">
+  </div>
+
+  <div class="form-group">
+    <label for="email" class="form-label my-1">E-mail</label>
+    <input formControlName="email" type="email" class="form-control my-1" id="email" name="email">
+  </div>
+
+  <button type="submit" class="btn btn-success my-2">Salvar</button>
+</form>
+
+<table class="table">
+  <caption class="caption-top"><h2>Fornecedores</h2></caption>
+  <thead>
+    <tr>
+      <th>Nome</th>
+      <th>CNPJ</th>
+      <th>Endereco</th>
+      <th>Telefone</th>
+      <th>SICAF</th>
+      <th>E-mail</th>
+      <th>Ações</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor = "let fornecedor of fornecedores">
+      <td>{{ fornecedor.nome }}</td>
+      <td>{{ fornecedor.cnpj }}</td>
+      <td>{{ fornecedor.endereco }}</td>
+      <td>{{ fornecedor.telefone }}</td>
+      <td>{{ fornecedor.sicaf }}</td>
+      <td>{{ fornecedor.email }}</td>
+      <td>
+        <button class="btn btn-sm btn-success mx-1" (click)="editar(fornecedor)">Editar</button>
+        <button class="btn btn-sm btn-danger mx-1" (click)="remover(fornecedor)">Excluir</button>
+      </td>
+    </tr>
+  </tbody>
+</table>

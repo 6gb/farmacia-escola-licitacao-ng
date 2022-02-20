@@ -1,0 +1,42 @@
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+  <div class="form-group">
+    <label for="descricao" class="form-label my-1">Descrição</label>
+    <input formControlName="descricao" type="text" class="form-control my-1" id="descricao" name="descricao">
+  </div>
+
+  <div class="form-group">
+    <label for="material" class="form-label my-1">Material</label>
+    <input formControlName="material" type="text" class="form-control my-1" id="material" name="material">
+  </div>
+
+  <div class="form-group">
+    <label for="capacidade" class="form-label my-1">Capacidade</label>
+    <input
+      formControlName="capacidade" type="number" class="form-control my-1" id="capacidade" name="capacidade" min="0">
+  </div>
+
+  <button type="submit" class="btn btn-success my-2">Salvar</button>
+</form>
+
+<table class="table">
+  <caption class="caption-top"><h2>Embalagens</h2></caption>
+  <thead>
+    <tr>
+      <th>Descrição</th>
+      <th>Material</th>
+      <th>Capacidade(g)</th>
+      <th>Ações</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor = "let embalagem of embalagens">
+      <td>{{ embalagem.descricao }}</td>
+      <td>{{ embalagem.material }}</td>
+      <td>{{ embalagem.capacidade }}</td>
+      <td>
+        <button class="btn btn-sm btn-success mx-1" (click)="editar(embalagem)">Editar</button>
+        <button class="btn btn-sm btn-danger mx-1" (click)="remover(embalagem)">Excluir</button>
+      </td>
+    </tr>
+  </tbody>
+</table>

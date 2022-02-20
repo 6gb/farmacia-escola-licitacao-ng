@@ -1,0 +1,48 @@
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+  <div class="form-group">
+    <label for="descricao" class="form-label my-1">Descrição</label>
+    <input formControlName="descricao" type="text" class="form-control my-1" id="descricao" name="descricao">
+  </div>
+
+  <div class="form-group">
+    <label for="cas" class="form-label my-1">CAS</label>
+    <input formControlName="cas" type="text" class="form-control my-1" id="cas" name="cas">
+  </div>
+
+  <div class="form-group">
+    <label for="dcb" class="form-label my-1">DCB</label>
+    <input formControlName="dcb" type="text" class="form-control my-1" id="dcb" name="dcb">
+  </div>
+
+  <div class="form-group">
+    <label for="dci" class="form-label my-1">DCI</label>
+    <input formControlName="dci" type="text" class="form-control my-1" id="dci" name="dci">
+  </div>
+
+  <button type="submit" class="btn btn-success my-2">Salvar</button>
+</form>
+
+<table class="table">
+  <caption class="caption-top"><h2>Matérias-primas</h2></caption>
+  <thead>
+    <tr>
+      <th>Descrição</th>
+      <th>CAS</th>
+      <th>DCB</th>
+      <th>DCI</th>
+      <th>Ações</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor = "let materiaPrima of materiasPrimas">
+      <td>{{ materiaPrima.descricao }}</td>
+      <td>{{ materiaPrima.cas }}</td>
+      <td>{{ materiaPrima.dcb }}</td>
+      <td>{{ materiaPrima.dci }}</td>
+      <td>
+        <button class="btn btn-sm btn-success mx-1" (click)="editar(materiaPrima)">Editar</button>
+        <button class="btn btn-sm btn-danger mx-1" (click)="remover(materiaPrima)">Excluir</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
